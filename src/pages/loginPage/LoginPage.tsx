@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { PATH_URL } from '../../constants/pathUrl';
-import { Container, Box, TextField, Button, Typography, Alert } from '@mui/material';
+import { Container, Box, TextField, Button, Typography, Alert, FormControlLabel, Checkbox } from '@mui/material';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [rememberMe, setRememberMe] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -15,7 +16,7 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     setErrorMessage(null);
     try {
-      await login(username, password);
+      await login(username, password, rememberMe);
       navigate(PATH_URL.HOME);
     } catch (error) {
       console.error('Login failed:', error);
@@ -68,12 +69,23 @@ const LoginPage: React.FC = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                color="primary"
+              />
+            }
+            label="Ghi nhớ đăng nhập"
+            sx={{ mb: 2 }}
+          />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{ mt: 2 }}
           >
             Đăng nhập
           </Button>

@@ -1,22 +1,46 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-interface AuthContextType {
-  token: string | null;
-  setToken: (token: string) => void;
-  logout: () => void; 
-}
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { AuthContextType } from '../utils/faker';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [token, setToken] = useState<string | null>(null);
+    const [token, setTokenState] = useState<string | null>(() => localStorage.getItem('token'));
 
-  const logout = () => {
-    setToken(null);
-  };
+    const setToken = (newToken: string | null) => {
+        if (newToken) {
+          localStorage.setItem('token', newToken);
+        } else {
+          localStorage.removeItem('token');
+        }
+        setTokenState(newToken);
+      };
+
+      const login = async (username: string, password: string, rememberMe: boolean) => {
+        const mockLogin = async (): Promise<string> => {
+          return new Promise((resolve) => setTimeout(() => resolve('mocked_token'), 1000));
+        };
+
+
+        const token = await mockLogin();
+        setToken(token);
+
+        if (rememberMe) {
+            localStorage.setItem('token', token);
+          }
+        };
+
+        const logout = () => {
+            setToken(null);
+        };
+
+        useEffect(() => {
+            if (!token) {
+              localStorage.removeItem('token');
+            }
+          }, [token]);
 
   return (
-    <AuthContext.Provider value={{ token, setToken, logout  }}>
+    <AuthContext.Provider value={{ token, setToken, login, logout  }}>
       {children}
     </AuthContext.Provider>
   );

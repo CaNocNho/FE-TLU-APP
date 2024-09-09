@@ -15,3 +15,10 @@ export interface MarkItem {
   processMark?: number;
   examMark?: number;
 }
+
+export interface AuthContextType {
+  token: string | null;
+  setToken: (token: string) => void;
+  login: (username: string, password: string, rememberMe: boolean) => Promise<void>;
+  logout: () => void;
+}
