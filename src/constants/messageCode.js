@@ -1,0 +1,20 @@
+export const MESSAGE_CODE = {
+    E0001: "Đây là trường bắt buộc, vui lòng nhập.",
+    E0002: (max) => `Vui lòng nhập ít hơn ${max} kí tự.`,
+    E0003: (min) => `Vui lòng nhập ít nhất ${min} kí tự.`,
+    E0004: "Không đúng định dạng E-mail, vui lòng nhập lại.",
+    E0005: "Không đúng định dạng số, vui lòng nhập lại.",
+    E0006: "Không đúng định dạng chữ, vui lòng nhập lại.",
+    E0007: "Mật khẩu phải bao gồm chữ in hoa, chữ in thường, số, ký tự đặc biệt.",
+    E0008: (value) => `Hãy nhập theo định dạng ${value}.`,
+    E0009: "Mật khẩu không trùng khớp.",
+    E0010: "Thông tin tài khoản hoặc mật khẩu không chính xác.",
+    E0011: (value) => `Hãy nhập số lớn hơn ${value}`,
+    E0012: "Giá trị không tồn tại trong cơ sở dữ liệu.",
+    E0013: "Không đúng định dạng số điện thoại, vui lòng nhập lại.",
+    E0023: (value) => `Hãy nhập giá trị lớn hơn ${value}.`,
+    E0025: "Hãy nhập theo đúng định dạng URL.",
+    E0027: (value) => `Hãy nhập giá trị nhỏ hơn ${value}.`,
+    E0046: "Tệp tải lên không đúng định dạng.",
+    E0047: "Số lượng tệp tải lên lớn hơn giới hạn cho phép."
+};

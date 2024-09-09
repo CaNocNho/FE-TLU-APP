@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">tlu-app</string>
+    <string name="title_activity_main">tlu-app</string>
+    <string name="package_name">com.tlu_app</string>
+    <string name="custom_url_scheme">com.tlu_app</string>
+</resources>
