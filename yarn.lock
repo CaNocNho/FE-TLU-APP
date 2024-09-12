@@ -234,6 +234,11 @@
   dependencies:
     tslib "^2.1.0"
 
+"@capacitor/ios@^6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-6.1.2.tgz#568e8b904ad0a6d42fb1b2cc239eab2735ccd5e5"
+  integrity sha512-HaeW68KisBd/7TmavzPDlL2bpoDK5AjR2ZYrqU4TlGwM88GtQfvduBCAlSCj20X0w/4+rWMkseD9dAAkacjiyQ==
+
 "@emotion/babel-plugin@^11.12.0":
   version "11.12.0"
   resolved "https://registry.npmjs.org/@emotion/babel-plugin/-/babel-plugin-11.12.0.tgz"
